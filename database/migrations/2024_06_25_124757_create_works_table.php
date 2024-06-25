@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('works', function (Blueprint $table) {
             $table->id();
+            $table->string('title',31);
+            $table->string('contents',141);
+            $table->foreignId('user_id')->constrained();
+            $table->string('image_at');
+            $table->timestamp('create_at');
+            $table->timestamp('updated_at');
             $table->timestamps();
         });
     }
