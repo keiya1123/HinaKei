@@ -1,0 +1,10 @@
+.header{
+    width: 100vw;
+    height: 20px;
+}
+
+.appricationname{
+    width: 40px;
+    height: 40px;
+    background-color: aqua;
+}
