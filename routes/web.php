@@ -19,11 +19,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/works/create', function () {return view('works.create');});
 
-Route::post('/works' , [WorkController::class, 'store'])->name('works.store');
+Route::post('/works/store' , [WorkController::class, 'store'])->name('works.store');
 
 Route::get('/works/{id}' , [WorkController::class, 'show'])->name('works.show');
 
@@ -32,3 +32,5 @@ Route::get('/works/{id}/edit' , [WorkController::class, 'edit'])->name('works.ed
 Route::put('/works/{id}' , [WorkController::class, 'update'])->name('works.update');
 
 Route::delete('/works/{id}' , [WorkController::class, 'destroy'])->name('works.destroy');
+
+Route::get('/works' , [WorkController::class, 'index'])->name('works.index');
