@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/works', [App\Http\Controllers\HomeController::class, 'index'])->name('works.index');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
 
 Route::get('/works/create', function () {return view('works.create');});
 
