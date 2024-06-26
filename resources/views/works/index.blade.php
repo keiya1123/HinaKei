@@ -43,7 +43,7 @@
                 投稿一覧
             </div>
             <div class="card-body">
-                <h5 class="card-title">タイトル : おはよう</h5>
+                <h5 class="card-title">タイトル : おはよう1</h5>
                 <p class="card-text">
                   内容 : 今日のセブは快晴
                 </p>
