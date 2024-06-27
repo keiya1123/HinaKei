@@ -26,10 +26,13 @@ class WorkController extends Controller
     function store(Request $request)
     {
         // dd($request);
+        //$requestに入っている値を、new Postでデータベースに保存するという記述
         $work = new Work;
 
         $work -> title = $request -> title;
-        $work -> body = $request -> body;
+        $work -> contents = $request -> contents;
+        $work -> image_at = $request -> image_at;
+        $work -> create_at = $request -> create_at;
         $work -> user_id = Auth::id();
 
         $work -> save();
