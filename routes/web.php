@@ -19,6 +19,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//一つにまとめられるかも？　あとで実装の確認！
+// Route::resource('works', WorkController::class);
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/works/create', function () {return view('works.create');});
