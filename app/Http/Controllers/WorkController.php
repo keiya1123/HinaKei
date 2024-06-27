@@ -27,7 +27,7 @@ class WorkController extends Controller
     {
         // dd($request);
         $work = new Work;
-
+//あとで足すかも？
         $work -> title = $request -> title;
         $work -> body = $request -> body;
         $work -> user_id = Auth::id();
