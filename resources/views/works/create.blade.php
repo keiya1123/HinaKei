@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
+
     {{-- <link rel="stylesheet" href="."> style.cssを後で制作 --}}
     
 {{-- </head>
@@ -30,8 +22,17 @@
     <script></script>
 </body>
 </html> --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style.css">
+</head>
 <body>
-<header>
+  <header>
     <div class="header-left">
             <img class="logo" src="./logo.png" alt="">
         </div>
@@ -44,27 +45,18 @@
   <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
-             <div class="card text-center">
-            <div class="card-header">
-                投稿一覧
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">タイトル : おはよう</h5>
-                <p class="card-text">
-                  内容 : 今日のセブは快晴
-                </p>
-                <p class="card-text">投稿者：Seed Techさん</p>
-                <a href="#" class="btn btn-primary">詳細へ</a>
-            </div>
-            <div class="card-footer text-muted">
-                投稿日時 : 2021/11/08
-            </div>
-        </div>
-        </div>
-        <div class="col-md-2">
-          <a href="#" class="btn btn-primary">
-            新規投稿
-          </a>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label>タイトル</label>
+                    <input type="text" class="form-control" placeholder="タイトルを入力して下さい" name="title">
+                </div>
+                <div class="form-group">
+                    <label>内容</label>
+                    <textarea class="form-control" placeholder="内容" rows="5" name="body">
+                    </textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">作成</button>
+            </form>
         </div>
     </div>
   </div>
