@@ -36,4 +36,22 @@ class WorkController extends Controller
 
         return redirect()->route('works.index');
     }
+
+
+    //詳細ページ
+    function show($id)
+    {
+        // dd($id);
+        $work = Work::find($id);
+
+        return view('works.show', ['work'=>$work]);
+    }
+
+    //編集機能
+    function edit($id)
+    {
+        $work = Work::find($id);
+        return view('works.edit', ['work'=>$work]);
+    }
 }
+//18:05
