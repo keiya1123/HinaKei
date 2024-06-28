@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class WorkController extends Controller
 {
-    //詳細ページ
+    //一覧ページ
     function index()
     {
         $works = Work::all();
@@ -32,7 +32,6 @@ class WorkController extends Controller
         $work -> title = $request -> title;
         $work -> contents = $request -> contents;
         $work -> image_at = $request -> image_at;
-        $work -> create_at = $request -> create_at;
         $work -> user_id = Auth::id();
 
         $work -> save();
@@ -56,5 +55,27 @@ class WorkController extends Controller
         $work = Work::find($id);
         return view('works.edit', ['work'=>$work]);
     }
+
+    //更新機能
+    function update(Request $request, $id)
+    {
+        $work = Work::find($id);
+
+        $work -> title = $request -> title;
+        $work -> contents = $request -> contents;
+        $work -> save();
+
+        return view ('works.show', ['work' => $work]);
+    }
+
+    //削除機能
+    function destroy($id)
+    {
+        $work = Work::find($id);
+
+        $work -> delete();
+
+        return redirect() -> route('works.index');
+    }
 }
-//18:05
+//
