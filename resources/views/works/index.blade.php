@@ -31,7 +31,7 @@
         </div>
         <div class="header-right">
             <ul class="nav">
-                <li><a href="#">ユーザA</a></li>
+                <li><a href="#">{{ Auth::user()->name }}</a></li>
             </ul>
         </div>
   </header>
@@ -44,12 +44,12 @@
             </div>
             @foreach($works as $work)
             <div class="card-body">
-                <h5 class="card-title">タイトル : {{ $work -> title }}</h5>
+                <h5 class="card-title">タイトル : {{ $work -> title}}</h5>
                 <p class="card-text">
                   内容 : {{ $work -> contents }}
                 </p>
-                <p class="card-text">投稿者：Seed Techさん</p>
-                <a href="#" class="btn btn-primary">詳細へ</a>
+                <p class="card-text">投稿者：{{ $work->user->name }}</p>
+                <a href="{{ route('works.show' , $work->id ) }}" class="btn btn-primary">詳細へ</a>
             </div>
             <div class="card-footer text-muted">
                 投稿日時 : {{ $work -> created_at }}

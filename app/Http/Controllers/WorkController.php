@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Work;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class WorkController extends Controller
@@ -12,6 +13,8 @@ class WorkController extends Controller
     function index()
     {
         $works = Work::all();
+       
+
         // dd($works);
         return view('works.index', compact('works'));
     }
@@ -63,6 +66,7 @@ class WorkController extends Controller
 
         $work -> title = $request -> title;
         $work -> contents = $request -> contents;
+        $work -> image_at= $request -> image_at;
         $work -> save();
 
         return view ('works.show', ['work' => $work]);
