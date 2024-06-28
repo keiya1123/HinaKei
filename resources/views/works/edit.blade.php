@@ -31,21 +31,28 @@
         </div>
         <div class="header-right">
             <ul class="nav">
-                <li><a href="#">ユーザA</a></li>
+                <li><a href="#">{{ Auth::user()->name }}</a></li>
             </ul>
         </div>
   </header>
   <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <form action="#" method="POST">
+            <form action="{{ route('works.update' , $work->id) }}" method="POST">
+                @csrf
+                @method('put')
                 <div class="form-group">
                     <label>タイトル</label>
-                    <input type="text" class="form-control" value="" name="title">
+                    <input type="text" class="form-control" value="{{ $work->title }}" name="title">
                 </div>
                 <div class="form-group">
                     <label>内容</label>
-                    <textarea class="form-control" rows="5" name="body"></textarea>
+                    <textarea class="form-control" rows="5" name="contents">{{ $work->contents }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label>画像</label>
+                    <textarea class="form-control" rows="10" name="image_at">{{ $work->image_at }}
+                    </textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">更新する</button>
             </form>

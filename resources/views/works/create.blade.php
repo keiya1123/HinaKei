@@ -1,27 +1,3 @@
-
-    {{-- <link rel="stylesheet" href="."> style.cssを後で制作 --}}
-    
-{{-- </head>
-<body>
-    <header>
-        <div class="header">
-            <div class="appricationname">画像</div>
-            <div class="loginuser"></div>
-        </div>
-    </header>
-    <main>
-        <div class="container">
-            <div></div>
-        </div>
-    </main>
-    <footer>
-        <div>
-            <small>copy right &copy; HinaKei</small>
-        </div>
-    </footer>
-    <script></script>
-</body>
-</html> --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,16 +8,16 @@
   <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
 </head>
 <body>
-  <header>
-    <div class="header-left">
-            <img class="logo" src="./logo.png" alt="">
-        </div>
-        <div class="header-right">
-            <ul class="nav">
-                <li><a href="#">ユーザA</a></li>
-            </ul>
-        </div>
-  </header>
+    <header>
+        <div class="header-left">
+                <img class="logo" src="./logo.png" alt="">
+            </div>
+            <div class="header-right">
+                <ul class="nav">
+                    <li><a href="#">{{ Auth::user()->name }}</a></li>
+                </ul>
+            </div>
+      </header>
   <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -73,3 +49,4 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 </body>
 </html>
+

@@ -31,7 +31,7 @@
         </div>
         <div class="header-right">
             <ul class="nav">
-                <li><a href="#">ユーザA</a></li>
+                <li><a href="#">{{ Auth::user()->name }}</a></li>
             </ul>
         </div>
   </header>
@@ -40,13 +40,15 @@
           <div class="col-md-8">
               <div class="card mt-3">
                   <div class="card-header">
-                      <h5>タイトル：</h5>
+                      <h5>タイトル：{{ $work->title }}</h5>
                   </div>
                   <div class="card-body">
-                  <p class="card-text">内容：</p>
-                  <p>投稿日時：</p>
-                  <a href="#" class="btn btn-primary">編集する</a>
-                  <form action='#' method='post'>
+                  <p class="card-text">内容：{{ $work->contents }}</p>
+                  <p>投稿日時：{{ $work->created_at }}</p>
+                  <a href="{{ route('works.edit' , $work->id) }}" class="btn btn-primary">編集する</a>
+                  <form action='{{ route('works.destroy' , $work->id) }}' method='post'>
+                    @csrf
+                    @method('delete')
                       <input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'>
                   </form>
                   </div>
