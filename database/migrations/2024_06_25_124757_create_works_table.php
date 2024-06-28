@@ -16,8 +16,6 @@ return new class extends Migration
             $table->string('title', 31);
             $table->string('contents', 141);
             $table->string('image_at');
-            $table->timestamp('create_at');
-            // $table->timestamp('updated_at');
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
             

@@ -24,10 +24,10 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/works/create', function () {return view('works.create');});
-// Route::get('/works/create' , [WorkController::class, 'create'])->name('works.create');
+// Route::get('/works/create', function () {return view('works.create');});
+Route::get('/works/create' , [WorkController::class, 'create'])->name('works.create');
 
-Route::post('/works/store' , [WorkController::class, 'store'])->name('works.store');
+Route::post('/works' , [WorkController::class, 'store'])->name('works.store');
 
 Route::get('/works/{id}' , [WorkController::class, 'show'])->name('works.show');
 

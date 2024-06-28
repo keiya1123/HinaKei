@@ -46,6 +46,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <form action="{{ route('works.store') }}" method="POST">
+                @csrf
                 <div class="form-group">
                     <label>タイトル</label>
                     <input type="text" class="form-control" placeholder="タイトルを入力して下さい" name="title">
@@ -53,6 +54,11 @@
                 <div class="form-group">
                     <label>内容</label>
                     <textarea class="form-control" placeholder="アンパンマン" rows="10" name="contents">
+                    </textarea>
+                </div>
+                <div class="form-group">
+                    <label>画像</label>
+                    <textarea class="form-control" placeholder="アンパンマン" rows="10" name="image_at">
                     </textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">作成</button>

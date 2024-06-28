@@ -42,17 +42,19 @@
             <div class="card-header">
                 投稿一覧
             </div>
+            @foreach($works as $work)
             <div class="card-body">
-                <h5 class="card-title">タイトル : おはよう1</h5>
+                <h5 class="card-title">タイトル : {{ $work -> title }}</h5>
                 <p class="card-text">
-                  内容 : 今日のセブは快晴
+                  内容 : {{ $work -> contents }}
                 </p>
                 <p class="card-text">投稿者：Seed Techさん</p>
                 <a href="#" class="btn btn-primary">詳細へ</a>
             </div>
             <div class="card-footer text-muted">
-                投稿日時 : 2021/11/08
+                投稿日時 : {{ $work -> created_at }}
             </div>
+            @endforeach
         </div>
         </div>
         <div class="col-md-2">

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class WorkController extends Controller
 {
-    //詳細ページ
+    //一覧ページ
     function index()
     {
         $works = Work::all();
@@ -32,7 +32,6 @@ class WorkController extends Controller
         $work -> title = $request -> title;
         $work -> contents = $request -> contents;
         $work -> image_at = $request -> image_at;
-        $work -> create_at = $request -> create_at;
         $work -> user_id = Auth::id();
 
         $work -> save();
