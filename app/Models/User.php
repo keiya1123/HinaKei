@@ -44,8 +44,21 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    //試しにコメントアウト
+    // public function works()
+    // {
+    //     return $this->hasMany(Work::class); 
+    // }
+
+    //投稿機能との連携
     public function works()
     {
-        return $this->hasMany(Work::class); 
+        return $this->hasMany('App/Models/Work');
+    }
+
+    //コメント機能との連携
+    public function comments()
+    {
+        return $this->hasMany('App\Models\Comment');
     }
 }

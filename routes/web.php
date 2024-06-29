@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WorkController;
 /*
@@ -38,3 +39,7 @@ Route::put('/works/{id}' , [WorkController::class, 'update'])->name('works.updat
 Route::delete('/works/{id}' , [WorkController::class, 'destroy'])->name('works.destroy');
 
 Route::get('/works' , [WorkController::class, 'index'])->name('works.index');
+
+Route::get('/comments/create/{work_id}' , [CommentController::class, 'create'])->name('comments.create');
+
+Route::post('/comments' , [CommentController::class, 'store'])->name('comments.store');
