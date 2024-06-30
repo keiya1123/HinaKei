@@ -24,11 +24,11 @@
             <form action="{{ route('works.store') }}" method="POST">
                 @csrf
                 <div class="form-group">
-                    <label>タイトル</label>
-                    <input type="text" class="form-control" placeholder="タイトルを入力して下さい" name="title">
+                    <label>目標</label>
+                    <input type="text" class="form-control" placeholder="目標を入力して下さい" name="title">
                 </div>
                 <div class="form-group">
-                    <label>内容</label>
+                    <label>詳細</label>
                     <textarea class="form-control" placeholder="アンパンマン" rows="10" name="contents">
                     </textarea>
                 </div>

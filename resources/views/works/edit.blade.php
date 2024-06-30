@@ -42,11 +42,11 @@
                 @csrf
                 @method('put')
                 <div class="form-group">
-                    <label>タイトル</label>
+                    <label>目標</label>
                     <input type="text" class="form-control" value="{{ $work->title }}" name="title">
                 </div>
                 <div class="form-group">
-                    <label>内容</label>
+                    <label>詳細</label>
                     <textarea class="form-control" rows="5" name="contents">{{ $work->contents }}</textarea>
                 </div>
                 <div class="form-group">
