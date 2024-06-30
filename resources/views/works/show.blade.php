@@ -58,10 +58,38 @@
         </div>
       </div>
   </div>
+  {{-- ///////////// --}}
+  <div class="card-body">
+    <div class="tw-container tw-mx-auto tw-flex tw-flex-wrap tw-justify-center">
+      <div class="tw-lg:w-1/5 tw-w-full tw-mb-10 tw-lg:mb-0 tw-rounded-lg tw-overflow-hidden">
+      </div>
+      <div class="tw-flex tw-flex-col tw-flex-wrap tw-lg:py-6 tw-mb-10 tw-lg:w-1/2 tw-lg:pl-12 tw-lg:text-left tw-text-center">
+        <div class="flex flex-col mb-10  items-center">
+          <div class="tw-w-12 tw-h-12 tw-inline-flex tw-items-center tw-justify-center tw-rounded-full tw-bg-indigo-100 tw-text-indigo-500 tw-mb-5">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+            </svg>
+          </div>
+          <div class="tw-flex tw-justify-center tw-items-center tw-flex-col">
+            <h2 class="tw-text-gray-900 tw-text-lg tw-title-font tw-font-medium tw-mb-3">目標: {{  $work->title}} </h2>
+            <p class="tw-leading-relaxed tw-text-base">{{ $work->contents }}</p>
+            <h6 class="tw-text-red-900 tw-text-sm tw-title-font tw-font-medium tw-mb-1">投稿者: {{ $work->user->name }}</h6>
+            <h6 class="tw-text-red-900 tw-text-sm tw-title-font tw-font-small tw-mb-1">投稿日時 : {{ $work->created_at }}</h6>
+            <a href="{{ route('works.show', $work->id) }}" class="tw-mt-3 tw-text-indigo-500 tw-inline-flex tw-items-center">詳細へ
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="tw-w-4 tw-h-4 tw-ml-2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{-- //////////////// --}}
   <footer>
     Copyright &copy; Seedkun Inc.
   </footer>
-
+  @endsection
   {{-- <section class="text-gray-600 body-font">
     <div class="container px-5 py-24 mx-auto flex flex-wrap">
       <div class="lg:w-1/2 w-full mb-10 lg:mb-0 rounded-lg overflow-hidden">
@@ -122,31 +150,4 @@
       </div>
     </div>
   </section> --}}
-  <div class="card-body">
-    <div class="tw-container tw-mx-auto tw-flex tw-flex-wrap tw-justify-center">
-      <div class="tw-lg:w-1/5 tw-w-full tw-mb-10 tw-lg:mb-0 tw-rounded-lg tw-overflow-hidden">
-      </div>
-      <div class="tw-flex tw-flex-col tw-flex-wrap tw-lg:py-6 tw-mb-10 tw-lg:w-1/2 tw-lg:pl-12 tw-lg:text-left tw-text-center">
-        <div class="flex flex-col mb-10  items-center">
-          <div class="tw-w-12 tw-h-12 tw-inline-flex tw-items-center tw-justify-center tw-rounded-full tw-bg-indigo-100 tw-text-indigo-500 tw-mb-5">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-            </svg>
-          </div>
-          <div class="tw-flex tw-justify-center tw-items-center tw-flex-col">
-            <h2 class="tw-text-gray-900 tw-text-lg tw-title-font tw-font-medium tw-mb-3">Title: {{  $work->title}} </h2>
-            <p class="tw-leading-relaxed tw-text-base">{{ $work->contents }}</p>
-            <h6 class="tw-text-red-900 tw-text-sm tw-title-font tw-font-medium tw-mb-1">Author: {{ $work->user->name }}</h6>
-            <h6 class="tw-text-red-900 tw-text-sm tw-title-font tw-font-small tw-mb-1">投稿日時 : {{ $work->created_at }}</h6>
-            <a href="{{ route('works.show', $work->id) }}" class="tw-mt-3 tw-text-indigo-500 tw-inline-flex tw-items-center">Learn More
-              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="tw-w-4 tw-h-4 tw-ml-2" viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  @endsection
 
