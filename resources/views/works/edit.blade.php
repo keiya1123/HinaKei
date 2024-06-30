@@ -37,7 +37,8 @@
                     <textarea class="form-control" rows="10" name="image_at" id="image_at">{{ $work->image_at }}
                     </textarea>
                 </div>
-                <button type="submit" class="btn btn-primary" onclick="return checkdata()">更新する</button>
+
+                <button type="submit" class="btn btn-primary" onclick="return checkdata()">更新する</button
             </form>
         </div>
     </div>

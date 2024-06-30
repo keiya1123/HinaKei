@@ -47,6 +47,7 @@
         </div>
     </div>
   </div>
+
   <footer>
     Copyright &copy; Seedkun Inc.
   </footer>
