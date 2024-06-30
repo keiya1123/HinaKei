@@ -23,10 +23,10 @@
           <div class="col-md-8">
               <div class="card mt-3">
                   <div class="card-header">
-                      <h5>タイトル：{{ $work->title }}</h5>
+                      <h5>目標：{{ $work->title }}</h5>
                   </div>
                   <div class="card-body">
-                  <p class="card-text">内容：{{ $work->contents }}</p>
+                  <p class="card-text">詳細：{{ $work->contents }}</p>
                   <p>投稿日時：{{ $work->created_at }}</p>
                   <a href="{{ route('works.edit' , $work->id) }}" class="btn btn-primary">編集する</a>
                   <form action='{{ route('works.destroy' , $work->id) }}' method='post'>
@@ -51,7 +51,7 @@
                 <h5 class="card-header">投稿者：{{ $comment->user->name }}</h5>
                 <div class="card-body">
                     <h5 class="card-title">投稿日時：{{ $comment->created_at }}</h5>
-                    <p class="card-text">内容：{{ $comment->contents }}</p>
+                    <p class="card-text">詳細：{{ $comment->contents }}</p>
                 </div>
             </div>
             @endforeach
