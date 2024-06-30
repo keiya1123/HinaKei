@@ -69,7 +69,7 @@ class WorkController extends Controller
         $work -> image_at= $request -> image_at;
         $work -> save();
 
-        return view ('works.show', ['work' => $work]);
+        return redirect() -> route('works.index');
     }
 
     //削除機能
