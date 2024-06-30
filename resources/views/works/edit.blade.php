@@ -15,26 +15,9 @@
 </body>
 </html> --}}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-  <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
-</head>
-<body>
-  <header>
-    <div class="header-left">
-            <img class="logo" src="./logo.png" alt="">
-        </div>
-        <div class="header-right">
-            <ul class="nav">
-                <li><a href="#">{{ Auth::user()->name }}</a></li>
-            </ul>
-        </div>
-  </header>
+@extends('layouts.app')
+
+@section('content')
   <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -43,18 +26,18 @@
                 @method('put')
                 <div class="form-group">
                     <label>タイトル</label>
-                    <input type="text" class="form-control" value="{{ $work->title }}" name="title">
+                    <input type="text" class="form-control" value="{{ $work->title }}" name="title" id="title">
                 </div>
                 <div class="form-group">
                     <label>内容</label>
-                    <textarea class="form-control" rows="5" name="contents">{{ $work->contents }}</textarea>
+                    <textarea class="form-control" rows="5" name="contents" id="contents">{{ $work->contents }}</textarea>
                 </div>
                 <div class="form-group">
                     <label>画像</label>
-                    <textarea class="form-control" rows="10" name="image_at">{{ $work->image_at }}
+                    <textarea class="form-control" rows="10" name="image_at" id="image_at">{{ $work->image_at }}
                     </textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">更新する</button>
+                <button type="submit" class="btn btn-primary" onclick="return checkdata()">更新する</button>
             </form>
         </div>
     </div>
@@ -62,7 +45,47 @@
   <footer>
     Copyright &copy; Seedkun Inc.
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
-</body>
-</html>
+  <script>
+    function checkdata()
+    {
+        const title = document.getElementById('title').value.replace(/\s/g, '')
+        const contents = document.getElementById('contents').value.replace(/\s/g, '')
+        const image_at = document.getElementById('image_at').value.replace(/\s/g, '')
+
+        if(title.length == 0 && contents.length == 0 && image_at.length == 0) {
+            alert("目標と詳細と画像が未入力です")
+            return false
+        }
+
+        if(title.length == 0 && contents.length == 0) {
+            alert("目標と詳細が未入力です")
+            return false
+        }
+
+        if(contents.length == 0 && image_at.length == 0) {
+            alert("詳細と画像が未入力です")
+            return false
+        }
+
+        if(title.length == 0 && image_at.length == 0) {
+            alert("目標と画像が未入力です")
+            return false
+        }
+
+        if(title.length == 0) {
+            alert("目標が未入力です")
+            return false
+        }
+
+        if(contents.length == 0) {
+            alert("詳細が未入力です")
+            return false
+        }
+
+        if(image_at.length == 0) {
+            alert("画像が未入力です")
+            return false
+        }
+    }
+  </script>
+  @endsection
