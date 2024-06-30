@@ -23,16 +23,18 @@
           <div class="col-md-8">
               <div class="card mt-3">
                   <div class="card-header">
-                      <h5>目標：{{ $work->title }}</h5>
+                    <h5 class="tw-text-gray-900 tw-text-lg tw-title-font tw-font-medium tw-mb-3">目標: {{  $work->title}} </h5>
                   </div>
-                  <div class="card-body">
-                  <p class="card-text">詳細：{{ $work->contents }}</p>
+                  <div class="card-body tw-bg-blue-100">
+                    <p class="tw-leading-relaxed tw-text-base">詳細：{{ $work->contents }}
                   <p>投稿日時：{{ $work->created_at }}</p>
-                  <a href="{{ route('works.edit' , $work->id) }}" class="btn btn-primary">編集する</a>
-                  <form action='{{ route('works.destroy' , $work->id) }}' method='post'>
+                  <a href="{{ route('works.edit' , $work->id) }}" class="tw-mt-3 tw-text-indigo-500 tw-inline-flex tw-items-center">編集する</a>
+                  <a href="{{ route('works.edit' , $work->id) }}" class="btn btn-primary">編集する</a>ーーーーーー
+                  {{-- <form action='{{ route('comments.destroy' , $comment->id) }}' method='post'> --}}
                     @csrf
                     @method('delete')
-                      <input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'>
+                      <a href="{{ route('works.show', $work->id) }}" class="tw-mt-3 tw-text-indigo-500 tw-inline-flex tw-items-center"><input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'></a>
+                      {{-- <input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'> --}}
                   </form>
                   </div>
               </div>
@@ -48,10 +50,16 @@
           @foreach($work->comments as $comment)
           コメント一覧
             <div class="card mt-3">
-                <h5 class="card-header">投稿者：{{ $comment->user->name }}</h5>
+              <h5 class="tw-text-red-900 tw-text-sm tw-title-font tw-font-medium tw-mb-1">投稿者: {{ $work->user->name }}</h5>
                 <div class="card-body">
-                    <h5 class="card-title">投稿日時：{{ $comment->created_at }}</h5>
-                    <p class="card-text">詳細：{{ $comment->contents }}</p>
+                  <h5 class="tw-text-red-900 tw-text-sm tw-title-font tw-font-small tw-mb-1">投稿日時 : {{ $comment->created_at }}</h5>
+                  <form action='{{ route('comments.destroy' , $comment->id) }}' method='post'>
+                    @csrf
+                    @method('delete')
+                      {{-- <a href="{{ route('comments.show', $comment->id) }}" class="tw-mt-3 tw-text-indigo-500 tw-inline-flex tw-items-center"><input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'></a> --}}
+                      <input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'>
+                  </form>
+                  
                 </div>
             </div>
             @endforeach
@@ -71,11 +79,11 @@
             </svg>
           </div>
           <div class="tw-flex tw-justify-center tw-items-center tw-flex-col">
-            <h2 class="tw-text-gray-900 tw-text-lg tw-title-font tw-font-medium tw-mb-3">目標: {{  $work->title}} </h2>
+            {{-- <h2 class="tw-text-gray-900 tw-text-lg tw-title-font tw-font-medium tw-mb-3">目標: {{  $work->title}} </h2> --}}
             <p class="tw-leading-relaxed tw-text-base">{{ $work->contents }}</p>
-            <h6 class="tw-text-red-900 tw-text-sm tw-title-font tw-font-medium tw-mb-1">投稿者: {{ $work->user->name }}</h6>
-            <h6 class="tw-text-red-900 tw-text-sm tw-title-font tw-font-small tw-mb-1">投稿日時 : {{ $work->created_at }}</h6>
-            <a href="{{ route('works.show', $work->id) }}" class="tw-mt-3 tw-text-indigo-500 tw-inline-flex tw-items-center">詳細へ
+            {{-- <h6 class="tw-text-red-900 tw-text-sm tw-title-font tw-font-medium tw-mb-1">投稿者: {{ $work->user->name }}</h6> --}}
+            {{-- <h6 class="tw-text-red-900 tw-text-sm tw-title-font tw-font-small tw-mb-1">投稿日時 : {{ $work->created_at }}</h6> --}}
+            {{-- <a href="{{ route('works.show', $work->id) }}" class="tw-mt-3 tw-text-indigo-500 tw-inline-flex tw-items-center">詳細へ --}}
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="tw-w-4 tw-h-4 tw-ml-2" viewBox="0 0 24 24">
                 <path d="M5 12h14M12 5l7 7-7 7"></path>
               </svg>
@@ -86,6 +94,7 @@
     </div>
   </div>
   {{-- //////////////// --}}
+  
   <footer>
     Copyright &copy; Seedkun Inc.
   </footer>
