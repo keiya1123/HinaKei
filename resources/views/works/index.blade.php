@@ -30,7 +30,7 @@
             
             <div class="card-body tw-bg-blue-100">
               <div class="tw-container tw-mx-auto tw-flex tw-flex-wrap tw-justify-center " >
-                <div class="tw-lg:w-1/5 tw-w-full tw-mb-10 tw-lg:mb-0 tw-rounded-lg tw-overflow-hidden tw-border border-solid tw-bg-red-100">
+                <div class="tw-lg:w-1/5  tw-mb-10 tw-lg:mb-0 tw-rounded-lg tw-overflow-hidden tw-border border-solid tw-bg-green-100">
                   {{-- 追加した部分 --}}
                   <div class="tw-w-12 tw-h-12 tw-inline-flex tw-items-center tw-justify-center tw-rounded-full tw-bg-indigo-100 tw-text-indigo-500 tw-mb-5">
                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
@@ -39,7 +39,7 @@
                   </div> 
                   {{-- 追加した部分 --}}
                 </div>
-                <div class="tw-flex tw-flex-col tw-flex-wrap tw-lg:py-6 tw-mb-10 tw-lg:w-1/2 tw-lg:pl-12 tw-lg:text-left tw-text-center tw-border border-solid">
+                <div class="tw-flex tw-flex-col tw-flex-wrap tw-lg:py-6 tw-mb-10 tw-lg:w-1/2 tw-lg:pl-12 tw-lg:text-left tw-text-center tw-border border-solid tw-bg-red-100">
                   <div class="flex flex-col mb-10  items-center">
                      
                     <div class="tw-flex tw-justify-center tw-items-center tw-flex-col ">
