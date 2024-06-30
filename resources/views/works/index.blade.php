@@ -47,6 +47,8 @@
         </div>
     </div>
   </div>
+
+  {{-- ////////// --}}
   <section class="text-gray-600 body-font">
     <div class="container px-5 py-24 mx-auto flex flex-wrap">
       <div class="lg:w-1/2 w-full mb-10 lg:mb-0 rounded-lg overflow-hidden">
@@ -107,10 +109,11 @@
       </div>
     </div>
   </section>
+  {{-- /////////// --}}
   <footer>
     Copyright &copy; Seedkun Inc.
   </footer>
-  {{-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+  {{-- <script src="https://cdn.jsdeZivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 </body>
 </html> --}}
