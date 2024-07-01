@@ -4,82 +4,98 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Work;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class WorkController extends Controller
 {
     //一覧ページ
-    function index()
+    public function index()
     {
         $works = Work::all();
-       
-
-        // dd($works);
         return view('works.index', compact('works'));
     }
 
     //新規作成ページ
-    function create()
+    public function create()
     {
         return view('works.create');
     }
 
     //保存機能
-    function store(Request $request)
+    public function store(Request $request)
     {
-        // dd($request);
-        //$requestに入っている値を、new Postでデータベースに保存するという記述
+        $request->validate([
+            'title' => 'required',
+            'contents' => 'required',
+            'image_at' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        if ($request->hasFile('image_at')) {
+            $image = $request->file('image_at');
+            $imageName = time().'.'.$image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
+            $imagePath = 'images/'.$imageName;
+        } else {
+            $imagePath = null;
+        }
+
         $work = new Work;
-
-        $work -> title = $request -> title;
-        $work -> contents = $request -> contents;
-        $work -> image_at = $request -> image_at;
-        $work -> user_id = Auth::id();
-
-        $work -> save();
+        $work->title = $request->title;
+        $work->contents = $request->contents;
+        $work->image_at = $imagePath;
+        $work->user_id = Auth::id();
+        $work->save();
 
         return redirect()->route('works.index');
     }
 
-
     //詳細ページ
-    function show($id)
+    public function show($id)
     {
-        // dd($id);
         $work = Work::find($id);
-
-        return view('works.show', ['work'=>$work]);
+        return view('works.show', ['work' => $work]);
     }
 
     //編集機能
-    function edit($id)
+    public function edit($id)
     {
         $work = Work::find($id);
-        return view('works.edit', ['work'=>$work]);
+        return view('works.edit', ['work' => $work]);
     }
 
     //更新機能
-    function update(Request $request, $id)
+    public function update(Request $request, $id)
     {
         $work = Work::find($id);
 
-        $work -> title = $request -> title;
-        $work -> contents = $request -> contents;
-        $work -> image_at= $request -> image_at;
-        $work -> save();
+        $request->validate([
+            'title' => 'required',
+            'contents' => 'required',
+            'image_at' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
 
-        return redirect() -> route('works.index');
+        if ($request->hasFile('image_at')) {
+            $image = $request->file('image_at');
+            $imageName = time().'.'.$image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
+            $imagePath = 'images/'.$imageName;
+        } else {
+            $imagePath = $work->image_at;
+        }
+
+        $work->title = $request->title;
+        $work->contents = $request->contents;
+        $work->image_at = $imagePath;
+        $work->save();
+
+        return redirect()->route('works.index');
     }
 
     //削除機能
-    function destroy($id)
+    public function destroy($id)
     {
         $work = Work::find($id);
-
-        $work -> delete();
-
-        return redirect() -> route('works.index');
+        $work->delete();
+        return redirect()->route('works.index');
     }
 }
-//
