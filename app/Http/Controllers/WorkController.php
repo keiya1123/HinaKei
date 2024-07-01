@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Work;
 use Illuminate\Support\Facades\Auth;
 
+
 class WorkController extends Controller
+
 {
     //一覧ページ
     public function index()
@@ -99,9 +101,9 @@ public function update(Request $request, $id)
 }
 
     //削除機能
-    public function destroy($id)
+    public function destroy($work)
     {
-        $work = Work::find($id);
+        $work = Work::find($work);
         $work->delete();
         return redirect()->route('works.index');
     }
