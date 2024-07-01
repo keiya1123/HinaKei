@@ -26,21 +26,18 @@ class CommentController extends Controller
         $comment -> user_id = Auth::id();
         $comment -> work_id = $request -> work_id;
 
-        $comment -> save();
+        $comment ->save();
 
         return redirect()->route('works.show', $work->id);
     }
 
     //コメント削除機能
 
+    public function destroy (Comment $comment)
+    {
+        $comment->delete();
+        return redirect()->back();
     
+}
 
-    // public function destroy ($work_id)
-    // {
-    //     $comment = Comment::find($work_id);
-        
-    //     $comment -> delete();
-        
-    //     return redirect('works.show', $id);
-    // }
 }

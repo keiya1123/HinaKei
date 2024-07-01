@@ -44,4 +44,4 @@ Route::get('/comments/create/{work_id}' , [CommentController::class, 'create'])-
 
 Route::post('/comments' , [CommentController::class, 'store'])->name('comments.store');
 
-Route::delete('/comments/{id}' , [CommentController::class, 'destroy'])->name('comments.destroy');
+Route::delete('/comments/{comment}' , [CommentController::class, 'destroy'])->name('comments.destroy');
