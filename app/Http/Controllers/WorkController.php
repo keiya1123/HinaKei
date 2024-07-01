@@ -11,7 +11,7 @@ class WorkController extends Controller
     //一覧ページ
     public function index()
     {
-        $works = Work::all();
+        $works = Work::latest()->get();
         return view('works.index', compact('works'));
     }
 
