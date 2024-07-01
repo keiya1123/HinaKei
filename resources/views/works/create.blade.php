@@ -32,19 +32,39 @@
     {
         const title = document.getElementById('title').value.replace(/\s/g, '');
         const contents = document.getElementById('contents').value.replace(/\s/g, '');
+        const image_at = document.getElementById('image_at').value;
+
+        if(title.length == 0 && contents.length == 0 && image_at == "") {
+            alert("目標と詳細と画像が未入力です");
+            return false;
+        }
+
 
         if(title.length == 0 && contents.length == 0) {
             alert("目標と詳細が未入力です");
             return false;
         }
 
-        if(title.length == 0) {
-            alert("目標が未入力です");
+        if(title.length == 0 && image_at == "") {
+            alert("目標と画像が未入力です");
             return false;
         }
 
-        if(contents.length == 0) {
+        if(contents.length == 0 && image_at == "") {
+            alert("詳細と画像が未入力です");
+            return false;
+        }
+
+        if(title.length == "") {
+            alert("目標が未入力です");
+            return false;
+        }
+        if(contents.length == "") {
             alert("詳細が未入力です");
+            return false;
+        }
+        if(image_at == "") {
+            alert("画像が未入力です");
             return false;
         }
 
