@@ -30,4 +30,17 @@ class CommentController extends Controller
 
         return redirect()->route('works.show', $work->id);
     }
+
+    //コメント削除機能
+
+    
+
+    // public function destroy ($work_id)
+    // {
+    //     $comment = Comment::find($work_id);
+        
+    //     $comment -> delete();
+        
+    //     return redirect('works.show', $id);
+    // }
 }
