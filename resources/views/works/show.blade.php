@@ -29,7 +29,7 @@
                   <p class="card-text">詳細：{{ $work->contents }}</p>
                   <p>投稿日時：{{ $work->created_at }}</p>
 
-                  @can('work', $work)
+                  @can('poster', $work)
                   <a href="{{ route('works.edit' , $work->id) }}" class="btn btn-primary">編集する</a>
                   {{-- <form action='{{ route('works.destroy' , $work->id) }}' method='post'> --}}
                     <form action='{{ route('works.destroy' , $work) }}' method='post'>
