@@ -18,10 +18,10 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container">
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <form action="{{ route('works.update' , $work->id) }}" method="POST">
+            <form action="{{ route('works.update', $work->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('put')
                 <div class="form-group">
@@ -33,60 +33,35 @@
                     <textarea class="form-control" rows="5" name="contents" id="contents">{{ $work->contents }}</textarea>
                 </div>
                 <div class="form-group">
-                    <label>画像</label>
-                    <textarea class="form-control" rows="10" name="image_at" id="image_at">{{ $work->image_at }}
-                    </textarea>
+                    <label for="image_at">画像を選択してください</label>
+                    <input type="file" class="form-control" name="image_at" id="image_at">
                 </div>
-
-                <button type="submit" class="btn btn-primary" onclick="return checkdata()">更新する</button
+                <button type="submit" class="btn btn-primary" onclick="return checkdata()">更新する</button>
             </form>
         </div>
     </div>
-  </div>
-  <footer>
+</div>
+<footer>
     Copyright &copy; Seedkun Inc.
-  </footer>
-  <script>
-    function checkdata()
-    {
-        const title = document.getElementById('title').value.replace(/\s/g, '')
-        const contents = document.getElementById('contents').value.replace(/\s/g, '')
-        const image_at = document.getElementById('image_at').value.replace(/\s/g, '')
+</footer>
+<script>
+    function checkdata() {
+        const title = document.getElementById('title').value.trim();
+        const contents = document.getElementById('contents').value.trim();
+        const newImage = document.getElementById('new_image').value.trim();
 
-        if(title.length == 0 && contents.length == 0 && image_at.length == 0) {
-            alert("目標と詳細と画像が未入力です")
-            return false
+        if (title.length === 0 || contents.length === 0) {
+            alert("目標と詳細は必須です");
+            return false;
         }
 
-        if(title.length == 0 && contents.length == 0) {
-            alert("目標と詳細が未入力です")
-            return false
-        }
+        // 画像が選択されていない場合でも更新可能にする場合は以下をコメントインしてください
+        // if (newImage.length === 0) {
+        //     alert("画像が未選択ですが、更新を続行します");
+        // }
 
-        if(contents.length == 0 && image_at.length == 0) {
-            alert("詳細と画像が未入力です")
-            return false
-        }
-
-        if(title.length == 0 && image_at.length == 0) {
-            alert("目標と画像が未入力です")
-            return false
-        }
-
-        if(title.length == 0) {
-            alert("目標が未入力です")
-            return false
-        }
-
-        if(contents.length == 0) {
-            alert("詳細が未入力です")
-            return false
-        }
-
-        if(image_at.length == 0) {
-            alert("画像が未入力です")
-            return false
-        }
+        return true;
     }
-  </script>
+</script>
+
   @endsection

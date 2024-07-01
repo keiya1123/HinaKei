@@ -11,7 +11,7 @@
               @foreach($works as $work)
               <div class="card-body tw-bg-blue-100">
                   <div class="tw-container tw-mx-auto tw-flex tw-flex-wrap tw-justify-center">
-                      <div class="tw-lg:w-1/5 tw-mb-10 tw-lg:mb-0 tw-rounded-lg tw-overflow-hidden tw-border border-solid tw-bg-green-100">
+                      <div class=" tw-mb-10 tw-lg:mb-0 tw-rounded-full tw-overflow-hidden tw-border border-solid tw-bg-green-100 tw-w-[100px] tw-h-[100px] "  >
                           @if($work->image_at)
                               <img src="{{ asset($work->image_at) }}" alt="投稿画像" class="tw-w-full tw-h-auto">
                           @endif
