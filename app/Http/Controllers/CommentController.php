@@ -17,6 +17,7 @@ class CommentController extends Controller
         return view('comments.create' , ['work'=>$work]);
     }
 
+    //
     public function store(Request $request)
     {
         $work = Work::find($request->work_id);
