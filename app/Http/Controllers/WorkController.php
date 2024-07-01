@@ -64,32 +64,39 @@ class WorkController extends Controller
     }
 
     //更新機能
-    public function update(Request $request, $id)
-    {
-        $work = Work::find($id);
+    // 更新機能のアップデート
+public function update(Request $request, $id)
+{
+    // 指定された ID の Work レコードを取得
+    $work = Work::find($id);
 
-        $request->validate([
-            'title' => 'required',
-            'contents' => 'required',
-            'image_at' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
+    // フォームから送信されたデータのバリデーションルールの設定
+    $request->validate([
+        'title' => 'required',
+        'contents' => 'required',
+        'image_at' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
 
-        if ($request->hasFile('image_at')) {
-            $image = $request->file('image_at');
-            $imageName = time().'.'.$image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
-            $imagePath = 'images/'.$imageName;
-        } else {
-            $imagePath = $work->image_at;
-        }
-
-        $work->title = $request->title;
-        $work->contents = $request->contents;
-        $work->image_at = $imagePath;
-        $work->save();
-
-        return redirect()->route('works.index');
+    // 画像の保存処理
+    if ($request->hasFile('image_at')) {
+        $image = $request->file('image_at');
+        $imageName = time().'.'.$image->getClientOriginalExtension();
+        $image->move(public_path('images'), $imageName);
+        $imagePath = 'images/'.$imageName;
+    } else {
+        // 新しい画像がアップロードされていない場合は、元の画像パスを使う
+        $imagePath = $work->image_at;
     }
+
+    // Work モデルのデータを更新
+    $work->title = $request->title;
+    $work->contents = $request->contents;
+    $work->image_at = $imagePath;
+    $work->save();
+
+    // インデックスページへリダイレクト
+    return redirect()->route('works.index');
+}
 
     //削除機能
     public function destroy($id)

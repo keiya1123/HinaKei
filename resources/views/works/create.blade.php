@@ -18,7 +18,7 @@
                     <label>画像</label>
                     <input type="file" class="form-control" name="image_at" id="image_at">
                 </div>
-                <button type="submit" class="btn btn-primary">作成</button>
+                <button type="submit" class="btn btn-primary" onclick="return checkdata()">作成</button>
             </form>
         </div>
     </div>
