@@ -23,17 +23,17 @@
           <div class="col-md-8">
               <div class="card mt-3">
                   <div class="card-header">
-                    <h5 class="tw-text-gray-900 tw-text-lg tw-title-font tw-font-medium tw-mb-3">目標: {{  $work->title}} </h5>
+                    <h5 class="tw-text-gray-900 tw-text-lg tw-title-font tw-font-medium tw-mb-3">目標: {{  $work->title }} </h5>
                   </div>
                   <div class="card-body tw-bg-blue-100">
                     <p class="tw-leading-relaxed tw-text-base">詳細：{{ $work->contents }}
                   <p>投稿日時：{{ $work->created_at }}</p>
                   <a href="{{ route('works.edit' , $work->id) }}" class="tw-mt-3 tw-text-indigo-500 tw-inline-flex tw-items-center">編集する</a>
-                  <a href="{{ route('works.edit' , $work->id) }}" class="btn btn-primary">編集する</a>ーーーーーー
+                  {{-- <a href="{{ route('works.edit' , $work->id) }}" class="btn btn-primary">編集する</a> --}}
                   {{-- <form action='{{ route('comments.destroy' , $comment->id) }}' method='post'> --}}
                     @csrf
                     @method('delete')
-                      <a href="{{ route('works.show', $work->id) }}" class="tw-mt-3 tw-text-indigo-500 tw-inline-flex tw-items-center"><input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'></a>
+                      <a href="{{ route('works.index', $work->id) }}" class="tw-mt-3 tw-text-indigo-500 tw-inline-flex tw-items-center"><input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'></a>
                       {{-- <input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'> --}}
                   </form>
                   </div>
@@ -56,7 +56,6 @@
                   <form action='{{ route('comments.destroy' , $comment->id) }}' method='post'>
                     @csrf
                     @method('delete')
-                      {{-- <a href="{{ route('comments.show', $comment->id) }}" class="tw-mt-3 tw-text-indigo-500 tw-inline-flex tw-items-center"><input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'></a> --}}
                       <input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'>
                   </form>
                   

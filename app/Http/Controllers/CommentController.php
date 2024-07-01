@@ -31,17 +31,13 @@ class CommentController extends Controller
         return redirect()->route('works.show', $work->id);
     }
 
-     //削除機能
-    // function destroy(Request $request)
-    // {
-    // $comment = new Comment;
-    // $comment -> comment_id = $request ->comment_id;
-    // $comment -> user_id = Auth::id();
-    // $comment = Comment::find($request->comment_id);
-    // $comment -> contents = $request -> contents;
+     //コメント削除機能
+    function destroy($id)
+    {
+    $comment = Comment::find($id);
 
-    // $comment -> delete();
+    $comment -> delete();
 
-    // return redirect() -> route('works.show', $comment->id);
-    // }
+    return redirect() -> route('works.show', $comment->id);
+    }
 }
