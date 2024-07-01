@@ -36,7 +36,8 @@ Route::get('/works/{id}/edit' , [WorkController::class, 'edit'])->name('works.ed
 
 Route::put('/works/{id}' , [WorkController::class, 'update'])->name('works.update');
 
-Route::delete('/works/{id}' , [WorkController::class, 'destroy'])->name('works.destroy');
+// Route::delete('/works/{id}' , [WorkController::class, 'destroy'])->name('works.destroy');
+Route::delete('/works/{work}' , [WorkController::class, 'destroy'])->name('works.destroy');
 
 Route::get('/works' , [WorkController::class, 'index'])->name('works.index');
 
