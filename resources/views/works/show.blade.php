@@ -18,8 +18,6 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="tw-flex tw-flex-col tw-items-center">
-  <div class=" tw-rounded-full tw-overflow-hidden tw-border border-solid tw-w-[150px] tw-h-[150px] tw-bg-white tw-text-center"   >
 <div class="tw-flex tw-flex-col tw-items-center ">
   <div class=" tw-rounded-full tw-overflow-hidden tw-border border-solid tw-w-[150px] tw-h-[150px] tw-bg-white tw-text-center tw-flex tw-flex-col tw-items-center"   >
     @if($work->image_at)
@@ -65,11 +63,8 @@
           コメント一覧
           @foreach($work->comments as $comment)
             <div class="card mt-3">
-                <h5 class="card-header">投稿者：{{ $comment->user->name }}</h5>
                 <h5 class="card-header">コメント者：{{ $comment->user->name }}</h5>
                 <div class="card-body">
-                    <h5 class="card-title">投稿日時：{{ $comment->created_at }}</h5>
-                    <p class="card-text">詳細：{{ $comment->contents }}</p>
               <div class="">
                 <div class=" tw-rounded-full tw-overflow-hidden tw-border border-solid tw-w-[70px] tw-h-[70px] tw-bg-white tw-items-center tw-flex tw-flex-col tw-items-center"  >
                     @if($work->image_at)
