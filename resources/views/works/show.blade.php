@@ -53,7 +53,14 @@
           @foreach($work->comments as $comment)
           コメント一覧
             <div class="card mt-3">
+              < class="">
+                <div class="tw-lg:mb-0 tw-rounded-full tw-overflow-hidden tw-border border-solid tw-w-[70px] tw-h-[70px] tw-bg-white "   >
+                  @if($work->image_at)
+                    <img src="{{ asset($work->image_at) }}" alt="投稿画像" class="tw-w-full tw-h-auto">
+                @endif
+              </div>
                 <h5 class="card-header">投稿者：{{ $comment->user->name }}</h5>
+              
                 <div class="card-body">
                     <h5 class="card-title">投稿日時：{{ $comment->created_at }}</h5>
                     <p class="card-text">詳細：{{ $comment->contents }}</p>
