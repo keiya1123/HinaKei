@@ -62,8 +62,8 @@
           コメント一覧
           @foreach($work->comments as $comment)
             <div class="card mt-3">
-                <h5 class="card-header">投稿者：{{ $comment->user->name }}</h5>
-                <div class="card-body">
+                <h5 class="tw-bg-red-100 card-header">コメント者：{{ $comment->user->name }}</h5>
+                <div class="tw-bg-blue-100 card-body">
                     <h5 class="card-title">投稿日時：{{ $comment->created_at }}</h5>
                     <p class="card-text">詳細：{{ $comment->contents }}</p>
                 </div>
