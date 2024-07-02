@@ -47,7 +47,6 @@
                       <input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'>
                   </form>
                   @endcan
-
                   </div>
               </div>
           </div>

@@ -25,17 +25,33 @@
                 @csrf
                 @method('put')
                 <div class="form-group">
-                    <label>目標</label>
-                    <input type="text" class="form-control" value="{{ $work->title }}" name="title" id="title">
+                    <label style="font-size: 20px; margin-top:40px">目標</label>
+                    <input type="text" class="form-control" value="{{ $work->title }}" name="title" id="title" style="margin-bottom: 20px">
                 </div>
                 <div class="form-group">
-                    <label>詳細</label>
-                    <textarea class="form-control" rows="5" name="contents" id="contents">{{ $work->contents }}</textarea>
+                    <label style="font-size: 20px">詳細</label>
+                    <textarea class="form-control" rows="10" name="contents" id="contents" style="margin-bottom: 20px">{{ $work->contents }}</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="image_at">画像を選択してください</label>
-                    <input type="file" class="form-control" name="image_at" id="image_at">
+                    <label style="font-size: 20px; margin-bottom: 5px;">何月の目標</label><br>
+                    <select name="pulldown" id="pulldown" placeholder="〜月" style="margin-bottom: 20px; width:90px; font-size:18px;">
+                        <option value="1月" >1月</option>
+                        <option value="2月" >2月</option>
+                        <option value="3月" >3月</option>
+                        <option value="4月" >4月</option>
+                        <option value="5月" >5月</option>
+                        <option value="6月" >6月</option>
+                        <option value="7月" >7月</option>
+                        <option value="8月" >8月</option>
+                        <option value="9月" >9月</option>
+                        <option value="10月">10月</option>
+                        <option value="11月">11月</option>
+                        <option value="12月">12月</option>
+                    </select>
                 </div>
+                <div class="form-group">
+                    <label style="font-size: 20px">画像を選択してください</label>
+                    <input type="file" class="form-control" name="image_at" id="image_at" style="margin-bottom: 20px">
                 <button type="submit" class="btn btn-primary" onclick="return checkdata()">更新する</button>
             </form>
         </div>

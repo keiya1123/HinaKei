@@ -49,4 +49,4 @@ Route::post('/comments' , [CommentController::class, 'store'])->name('comments.s
 Route::delete('/comments/{comment}' , [CommentController::class, 'destroy'])->name('comments.destroy');
 
 //プルダウンボタンの作成
-Route::ger('/works' , [WorkController::class, 'index'])->name('works.pulldown');
+Route::get('/works' , [WorkController::class, 'index'])->name('works.pulldown');
