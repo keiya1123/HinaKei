@@ -28,6 +28,8 @@
                   <div class="card-body">
                   <p class="card-text">詳細：{{ $work->contents }}</p>
                   <p>投稿日時：{{ $work->created_at }}</p>
+
+                  @can('poster', $work)
                   <a href="{{ route('works.edit' , $work->id) }}" class="btn btn-primary">編集する</a>
                   {{-- <form action='{{ route('works.destroy' , $work->id) }}' method='post'> --}}
                     <form action='{{ route('works.destroy' , $work) }}' method='post'>
@@ -35,6 +37,8 @@
                     @method('delete')
                       <input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'>
                   </form>
+                  @endcan
+
                   </div>
               </div>
           </div>
