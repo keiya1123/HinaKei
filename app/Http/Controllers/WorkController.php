@@ -96,6 +96,7 @@ public function update(Request $request, $id)
     // Work モデルのデータを更新
     $work->title = $request->title;
     $work->contents = $request->contents;
+    $work->pulldown = $request->pulldown;
     $work->image_at = $imagePath;
     $work->save();
 
