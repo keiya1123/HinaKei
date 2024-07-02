@@ -41,8 +41,12 @@ Route::delete('/works/{work}' , [WorkController::class, 'destroy'])->name('works
 
 Route::get('/works' , [WorkController::class, 'index'])->name('works.index');
 
+//コメント機能
 Route::get('/comments/create/{work_id}' , [CommentController::class, 'create'])->name('comments.create');
 
 Route::post('/comments' , [CommentController::class, 'store'])->name('comments.store');
 
 Route::delete('/comments/{comment}' , [CommentController::class, 'destroy'])->name('comments.destroy');
+
+//プルダウンボタンの作成
+Route::ger('/works' , [WorkController::class, 'index'])->name('works.pulldown');

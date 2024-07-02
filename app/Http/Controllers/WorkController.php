@@ -29,6 +29,7 @@ class WorkController extends Controller
         $request->validate([
             'title' => 'required',
             'contents' => 'required',
+            'pulldown' => 'required',
             'image_at' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -44,6 +45,7 @@ class WorkController extends Controller
         $work = new Work;
         $work->title = $request->title;
         $work->contents = $request->contents;
+        $work->pulldown = $request->pulldown;
         $work->image_at = $imagePath;
         $work->user_id = Auth::id();
         $work->save();
@@ -76,6 +78,7 @@ public function update(Request $request, $id)
     $request->validate([
         'title' => 'required',
         'contents' => 'required',
+
         'image_at' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
     ]);
 
@@ -107,4 +110,10 @@ public function update(Request $request, $id)
         $work->delete();
         return redirect()->route('works.index');
     }
+
+    // public function index()
+    // {
+    //     $items = Work::all();
+    //     return view('dropdown', compact('items'));
+    // }
 }
