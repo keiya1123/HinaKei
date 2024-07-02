@@ -53,6 +53,7 @@
                     <label style="font-size: 20px">画像を選択してください</label>
                     <input type="file" class="form-control" name="image_at" id="image_at" style="margin-bottom: 20px">
                 <button type="submit" class="btn btn-primary" onclick="return checkdata()">更新する</button>
+                
             </form>
         </div>
     </div>
