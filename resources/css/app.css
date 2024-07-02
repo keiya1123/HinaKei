@@ -10,4 +10,16 @@
     .container-box{
         margin-left: 0;
     }
+    .mokuhyou-box{
+        height: 200px;
+    }
+    
+  }
+
+  @media only screen and (max-width: 992px) {
+    
+    .mokuhyou-box{
+        height: 150px;
+    }
+    
   }
