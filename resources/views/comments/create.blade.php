@@ -4,14 +4,15 @@
       
   <div class="row justify-content-center mt-5">
       <div class="col-md-8">
-        <h2>以下の記事にコメントします</h2>
+        <h2>以下の目標にコメントします</h2>
           <div class="card mt-3">
               <div class="card-header">
-                  <h5>タイトル：{{ $work->title }}</h5>
+                  <h5>投稿者：{{ $work->id }}</h5>
               </div>
               <div class="card-body">
-              <p class="card-text">内容：{{ $work->contents }}</p>
-              <p>投稿日時：{{ $work->created_at }}</p>
+            <h5>目標：{{ $work->title }}</h5>
+              <p class="card-text">詳細：{{ $work->contents }}</p>
+              <p>投稿日時：{{ substr($work->created_at, 0, 10) }}</p>
               
               </div>
           </div>
