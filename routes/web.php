@@ -48,8 +48,5 @@ Route::post('/comments' , [CommentController::class, 'store'])->name('comments.s
 
 Route::delete('/comments/{comment}' , [CommentController::class, 'destroy'])->name('comments.destroy');
 
-//プルダウンボタンの作成
-Route::get('/works' , [WorkController::class, 'index'])->name('works.pulldown');
-
 //マイページに遷移
 Route::get('/works/mypage' , [WorkController::class, 'mypage'])->name('works.mypage');
