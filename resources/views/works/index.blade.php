@@ -29,7 +29,11 @@
                           </div>
                       </div>
                       <div class="tw-flex tw-items-center tw-w-full tw-justify-end tw-gap-3">
-                        <p class="tw-leading-relaxed tw-text-base " style="font-size: 16px">投稿日時 : {{ substr($work->created_at, 0, 10) }}</p>
+                        <p class="tw-leading-relaxed tw-text-base " style="font-size: 16px">投稿日時 : {{ substr($work->created_at, 0, 10) }}</p><form action='{{ route('works.destroy' , $work) }}' method='post'>
+                          @csrf
+                          @method('delete')
+                            <input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'>
+                          </form>
                         <a href="{{ route('works.show', $work->id) }}" class="tw-text-indigo-500 tw-inline-flex tw-items-center" style="font-size: 16px">詳細
                             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="tw-w-4 tw-h-4 tw-ml-2" viewBox="0 0 24 24">
                                 <path d="M5 12h14M12 5l7 7-7 7"></path>

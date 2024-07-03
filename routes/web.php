@@ -47,3 +47,6 @@ Route::get('/comments/create/{work_id}' , [CommentController::class, 'create'])-
 Route::post('/comments' , [CommentController::class, 'store'])->name('comments.store');
 
 Route::delete('/comments/{comment}' , [CommentController::class, 'destroy'])->name('comments.destroy');
+
+//マイページに遷移
+Route::get('/works/mypage' , [WorkController::class, 'mypage'])->name('works.mypage');

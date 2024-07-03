@@ -45,7 +45,7 @@
                     @csrf
                     @method('delete')
                       <input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'>
-                  </form>
+                    </form>
                   @endcan
                   </div>
               </div>
@@ -53,13 +53,19 @@
       </div>
       <div class="row justify-content-center">
         <div class="col-md-8">
-                <button type="button" class="btn btn-primary" onclick="window.location='{{ route('comments.create', $work->id) }}'">コメントする</button>
+                <a href="{{ route('works.index') }}" class="btn btn-danger m-1">一覧に戻る</a>
         </div>
+      
       </div>
       <div class="row justify-content-center">
         <div class="col-md-8 mt-5">
-          <div class="tw-text-lg" style="font-size: 20px">コメント一覧</div>
-          @foreach($work->comments as $comment)
+          <div style="display: flex; align-items: center;">
+            <div class="tw-text-lg" style="font-size: 20px">コメント一覧</div>
+            <div style="margin-left: 10px">
+            <button type="button" class="btn btn-primary" onclick="window.location='{{ route('comments.create', $work->id) }}'">コメントする</button>
+            </div>
+        </div>
+        @foreach($work->comments as $comment)
             <div class="card mt-3">
                 <h5 class="tw-bg-red-100 card-header">コメント者：{{ $comment->user->name }}</h5>
                 <div class="tw-bg-blue-100 card-body">
@@ -81,40 +87,7 @@
       </div>
   </div>
   {{-- ///////////// --}}
-  <div class="card-body">
-    <div class="tw-container tw-mx-auto tw-flex tw-flex-wrap tw-justify-center">
-      <div class="tw-lg:w-1/5 tw-w-full tw-mb-10 tw-lg:mb-0 tw-rounded-lg tw-overflow-hidden">
-      </div>
-      <div class="tw-flex tw-flex-col tw-flex-wrap tw-lg:py-6 tw-mb-10 tw-lg:w-1/2 tw-lg:pl-12 tw-lg:text-left tw-text-center">
-        <div class="flex flex-col mb-10  items-center">
-          <div class="tw-w-12 tw-h-12 tw-inline-flex tw-items-center tw-justify-center tw-rounded-full tw-bg-indigo-100 tw-text-indigo-500 tw-mb-5">
-            <div class="tw-lg:mb-0 tw-rounded-full tw-overflow-hidden tw-border border-solid tw-w-[70px] tw-h-[70px] tw-bg-white "   >
-              @if($work->image_at)
-                  <img src="{{ asset($work->image_at) }}" alt="投稿画像" class="tw-w-full tw-h-auto">
-              @endif
-          </div>
-          </div>
-          <div class="tw-flex tw-justify-center tw-items-center tw-flex-col">
-            <h2 class="tw-text-gray-900 tw-text-lg tw-title-font tw-font-medium tw-mb-3">目標: {{  $work->title}} </h2>
-            <p class="tw-leading-relaxed tw-text-base">{{ $work->contents }}</p>
-
-            <h6 class="tw-text-red-900 tw-text-sm tw-title-font tw-font-medium tw-mb-1">投稿者: {{ $work->user->name }}</h6>
-            <div class="card-header tw-text-left tw-bg-red-100" style="font-size: 15px">
-              {{ $work->user->name }}
-          </div>
-
-            <h6 class="tw-text-red-900 tw-text-sm tw-title-font tw-font-small tw-mb-1">投稿日時 : {{ $work->created_at }}</h6>
-            <a href="{{ route('works.show', $work->id) }}" class="tw-mt-3 tw-text-indigo-500 tw-inline-flex tw-items-center">詳細へ
-              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="tw-w-4 tw-h-4 tw-ml-2" viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  {{-- //////////////// --}}
+ 
   <footer>
     Copyright &copy; Seedkun Inc.
   </footer>
