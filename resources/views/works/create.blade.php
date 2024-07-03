@@ -43,7 +43,7 @@
     </div>
 </div>
 <footer>
-    Copyright &copy; Seedkun Inc.
+    Copyright &copy; Softball Club.
 </footer>
 
   <script>
