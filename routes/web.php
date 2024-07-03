@@ -50,3 +50,6 @@ Route::delete('/comments/{comment}' , [CommentController::class, 'destroy'])->na
 
 //プルダウンボタンの作成
 Route::get('/works' , [WorkController::class, 'index'])->name('works.pulldown');
+
+//マイページに遷移
+Route::get('/works/mypage' , [WorkController::class, 'mypage'])->name('works.mypage');

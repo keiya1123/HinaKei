@@ -112,9 +112,10 @@ public function update(Request $request, $id)
         return redirect()->route('works.index');
     }
 
-    // public function index()
-    // {
-    //     $items = Work::all();
-    //     return view('dropdown', compact('items'));
-    // }
-}
+    //マイページへの移動function
+//     public function mypage()
+//     {
+//         $works = Work::latest()->get();
+//         return view('works.index', compact('works'));
+//     }
+// }
