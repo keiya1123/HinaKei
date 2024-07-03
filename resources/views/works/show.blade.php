@@ -24,20 +24,26 @@
         <img src="{{ asset($work->image_at) }}" alt="投稿画像" class="tw-w-full tw-h-auto">
     @endif
 </div>
-    <div class="">
-        <div class=" tw-text-left tw-bg-black-100 tw-mb-50 " style="font-size: 20px">投稿者：{{ $work->user->name }}</div>
+    <div class="tw-mt-2">
+        <div class=" tw-text-left tw-bg-black-100 tw-mb-50 " style="font-size: 25px">投稿者：{{ $work->user->name }}</div>
     </div> 
   <div class="container">
       <div class="row justify-content-center">
           <div class="col-md-8">
               <div class="mt-3">
-                  <div class=""style="font-size: 40px">
-                      <h5 class="tw-text-center">目標：{{ $work->title }}</h5>
+                  <div class=""style="">
+                      <div class="tw-mb-7 tw-mt-10">
+                          <h5 class="tw-text-center" style="font-size: 40px">{{  $work->pulldown }}の目標</h5>
+                      </div>
+                      <h5 class="tw-text-center " style="font-size: 40px">「　{{ $work->title }}　」</h5>
                   </div>
                   <div class="">
-                  <p class="tw-text-center tw-text-2xl">詳細：{{ $work->contents }}</p>
-                  <p class="tw-text-right">投稿日時：{{ substr($work->created_at, 0, 10) }}</p>
-
+                    <div class="tw-mt-5">
+                        <p class="tw-text-left" style="font-size: 28px">詳細</p>
+                    </div>
+                  <p class="tw-text-justify" style="font-size: 32px">{!! nl2br(htmlspecialchars($work->contents)) !!}</p>
+                  <p class="tw-text-right" style="font-size: 15px">投稿日時：{{ substr($work->created_at, 0, 10) }}</p>
+              <div class="">
                   @can('poster', $work)
                   <a href="{{ route('works.edit' , $work->id) }}" class="btn btn-primary">編集する</a>
                   {{-- <form action='{{ route('works.destroy' , $work->id) }}' method='post'> --}}
@@ -47,6 +53,7 @@
                       <input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'>
                     </form>
                   @endcan
+              </div>
                   </div>
               </div>
           </div>
