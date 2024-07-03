@@ -119,4 +119,4 @@ public function update(Request $request, $id)
 //         $works = Work::latest()->get();
 //         return view('works.index', compact('works'));
 //     }
-// }
+}
