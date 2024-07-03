@@ -2,11 +2,11 @@
 @section('content')
 <div class="container">
       
-<div class="col-md-8 tw-row-justify-content-center">
+{{-- <div class="col-md-8 tw-row-justify-content-center">
     <a href="{{ route('works.index') }}" class="m-1" style="font-size: 17px; color:black">←　一覧に戻る</a>
-</div>
+</div> --}}
 <div class="col-md-8 tw-row-justify-content-center">
-  <a href="{{ route('works.show', $work->id) }}" class="m-1" style="font-size: 17px; color:black">←　詳細に戻る</a>
+  <a href="{{ route('works.show', $work->id) }}" class="m-1" style="font-size: 17px; color:black">← 詳細に戻る</a>
 </div>
 
   <div class="row justify-content-center mt-5">
@@ -16,15 +16,16 @@
               <div class="card-header tw-bg-red-100" style="font-size: 17px">
                   <h5>投稿者：{{ $work->id }}</h5>
               </div>
-              <div class="card-body tw-bg-blue-100" style="font-size: 17px">
-
+              <div class="card-body tw-bg-blue-100 tw-flex tw-items-center " style="font-size: 17px">
+                  <div class="tw-mr-5">
                 @if($work->image_at)
                 <img src="{{ asset($work->image_at) }}" alt="投稿画像" class="tw-w-[70px] tw-h-[70px] tw-rounded-full tw-mr-5">
             @endif
+                  </div>
                 <div class="">
-              <h5>目標：{{ $work->title }}</h5>
-              <p class="card-text">詳細：{{ $work->contents }}</p>
               <p>投稿日時：{{ substr($work->created_at, 0, 10) }}</p>
+              <h5>目標：{{ $work->title }}</h5>
+              <p class="card-text">詳細：{!! nl2br(htmlspecialchars($work->contents)) !!}</p>
               </div>
               </div>
           </div>

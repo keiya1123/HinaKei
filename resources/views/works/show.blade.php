@@ -19,8 +19,8 @@
 
 @section('content')
 <div class="row justify-content-center">
-  <div class="col-md-8">
-          <a href="{{ route('works.index') }}" class="m-1" style="font-size: 17px; color:black">←　一覧に戻る</a>
+  <div class="col-md-8 ">
+          <a href="{{ route('works.index') }}" class="m-1" style="font-size: 17px; color:black">← 一覧に戻る</a>
   </div>
 </div>
 <div class="tw-flex tw-flex-col tw-items-center">
@@ -90,13 +90,23 @@
                       </div>
           <div class="tw-flex tw-items-center tw-justify-end tw-bg-blue-100">
                 @can('commentator', $comment)
+                <div class="" style="tw-mr-5">
                 <form action='{{ route('comments.destroy' , $comment) }}' method='post'>
                   @csrf
                   @method('delete')
-                <div class="tw-bg-blue-100">
-                    <input type='submit' value='削除' class="btn btn-danger " onclick='return confirm("本当に削除しますか？");'>
+                <div class="tw-bg-blue-100 ">
+                    <input type='submit' value='削除  ' class="delete " onclick='return confirm("本当に削除しますか？");' style="">
                   </div>
                 </form>
+              </div>
+
+                {{-- //// --}}
+                {{-- <form action='{{ route('works.destroy' , $work) }}' method='post'>
+                  @csrf
+                  @method('delete')
+                    <input type='submit' value='削除' class="delete" onclick='return confirm("本当に削除しますか？");'>
+                  </form> --}}
+                  {{-- /// --}}
                 @endcan
           </div>
             </div>
