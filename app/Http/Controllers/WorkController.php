@@ -12,9 +12,15 @@ class WorkController extends Controller
 
 {
     //一覧ページ
-    public function index()
+    public function index(Request $request)
     {
-        $works = Work::latest()->get();
+        if($request->pulldown == "目標一覧") {
+            $works = Work::latest()->get();
+        } elseif($request->pulldown == "マイページ") {
+            $works = Work::where('user_id', Auth::id())->latest()->get();
+        } else {
+            $works = Work::where('pulldown', 'LIKE', $request->pulldown)->latest()->get();
+        }
         return view('works.index', compact('works'));
     }
 
