@@ -36,7 +36,7 @@
                     <input type="file" class="form-control" name="image_at" id="image_at" style="margin-bottom: 20px">
                 </div>
                 <button type="submit" class="btn btn-primary" onclick="return checkdata()">作成</button>
-                <a href="{{ route('works.index') }}" class="btn btn-danger m-1">一覧に戻る</a>
+                {{-- <a href="{{ route('works.index') }}" class="btn btn-danger m-1">一覧に戻る</a> --}}
                 {{-- <button class="btn btn-primary" {{ route('works.index') }}>一覧に戻る</button> --}}
             </form>
         </div>
