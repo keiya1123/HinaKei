@@ -66,6 +66,7 @@
                     <h5 class="card-title">投稿日時：{{ substr($comment->created_at, 0, 10) }}</h5>
                     <p class="card-text">詳細：{{ $comment->contents }}</p>
                 </div>
+                @can('commentator', $comment)
                 <form action='{{ route('comments.destroy' , $comment) }}' method='post'>
                   @csrf
                   @method('delete')
@@ -73,6 +74,7 @@
                     <input type='submit' value='削除' class="btn btn-danger " onclick='return confirm("本当に削除しますか？");'>
                   </div>
                 </form>
+                @endcan
             </div>
             @endforeach
         </div>

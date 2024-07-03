@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class WorkController extends Controller
 
+
 {
     //一覧ページ
     public function index()
