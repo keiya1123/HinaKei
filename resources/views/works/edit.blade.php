@@ -59,8 +59,8 @@
         </div>
     </div>
 </div>
-<footer>
-    Copyright &copy; Seedkun Inc.
+<footer class="">
+    Copyright &copy; Softball Club.
 </footer>
 <script>
     function checkdata() {
