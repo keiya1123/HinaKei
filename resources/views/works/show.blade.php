@@ -41,7 +41,7 @@
                     <div class="tw-mt-5">
                         <p class="tw-text-left" style="font-size: 28px">詳細</p>
                     </div>
-                  <p class="tw-text-justify" style="font-size: 32px">{!! nl2br(htmlspecialchars($work->contents)) !!}</p>
+                  <p class="tw-text-justify" style="font-size: 25px">{!! nl2br(htmlspecialchars($work->contents)) !!}</p>
                   <p class="tw-text-right" style="font-size: 15px">投稿日時：{{ substr($work->created_at, 0, 10) }}</p>
               <div class="">
                   @can('poster', $work)
