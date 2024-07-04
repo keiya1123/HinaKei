@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title' , 30 );
             $table->text('contents' , 141 );
-            $table->text('pulldown');
+            $table->unsignedInteger('pulldown');
             $table->string('image_at')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
