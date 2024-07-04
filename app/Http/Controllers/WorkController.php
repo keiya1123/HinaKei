@@ -22,6 +22,7 @@ class WorkController extends Controller
             $works = Work::where('pulldown', 'LIKE', $request->pulldown)->latest()->get();
         }
         return view('works.index', compact('works'));
+
     }
 
     //新規作成ページ

@@ -18,11 +18,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row justify-content-center">
-  <div class="col-md-8 ">
-          <a href="{{ route('works.index') }}" class="m-1" style="font-size: 17px; color:black">← 一覧に戻る</a>
+
+  <div class="ichiran row justify-content-center tw-ml-20">
+          <a href="{{ route('works.index') }}" class="ichiran" style="font-size: 17px; color:black">← 一覧に戻る</a>
   </div>
-</div>
 <div class="tw-flex tw-flex-col tw-items-center">
   <div class=" tw-rounded-full tw-overflow-hidden tw-border border-solid tw-w-[150px] tw-h-[150px] tw-bg-white tw-text-center"   >
     @if($work->image_at)
@@ -49,14 +48,14 @@
                     </div>
                   <p class="tw-text-justify" style="font-size: 25px">{!! nl2br(htmlspecialchars($work->contents)) !!}</p>
                   <p class="tw-text-right" style="font-size: 15px">投稿日時：{{ substr($work->created_at, 0, 10) }}</p>
-              <div class="tw-flex tw-items-center tw-justify-end">
+              <div class="tw-flex tw-justify-end">
                   @can('poster', $work)
-                  <a href="{{ route('works.edit' , $work->id) }}" class="btn btn-primary">編集する</a>
                   {{-- <form action='{{ route('works.destroy' , $work->id) }}' method='post'> --}}
-                    <form action='{{ route('works.destroy' , $work) }}' method='post'>
+                    <form action='{{ route('works.destroy' , $work) }}' method='post' style="display: flex">
                     @csrf
                     @method('delete')
-                      <input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'>
+                      <input type='submit' value='削除' style="margin-right: 10px" class="delete" onclick='return confirm("本当に削除しますか？")'>
+                      <div class="edit"><a href="{{ route('works.edit' , $work->id) }}" >編集</a></div>
                     </form>
                   @endcan
               </div>
@@ -83,8 +82,8 @@
                     @endif
                 {{-- </div> --}}
                       <div class="" style="font-size: 20px">
-                    <p class="card-text">詳細：{{ $comment->contents }}</p>
                     <h5 class="card-title">投稿日時：{{ substr($comment->created_at, 0, 10) }}</h5>
+                    <p class="card-text">詳細：{{ $comment->contents }}</p>
                       </div>
                 </div>
                       </div>

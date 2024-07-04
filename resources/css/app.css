@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+.edit{
+    color: rgb(94, 21, 125);
+    font-size: 20px;
+}
+
+.edit:hover{
+    transform: scale(1.1)!important;
+
+}
 .delete{
     color: red;
     font-size: 20px;
@@ -9,9 +18,11 @@
 .create-create{
     background-color: rgb(51, 51, 193);
 }
+
 .search:hover,
 .create-create:hover,
 .show:hover,
+.ichiran :hover,
 .delete:hover{
     transform: scale(1.1)!important;
 

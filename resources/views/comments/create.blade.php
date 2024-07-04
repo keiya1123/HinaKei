@@ -2,9 +2,6 @@
 @section('content')
 <div class="container">
       
-{{-- <div class="col-md-8 tw-row-justify-content-center">
-    <a href="{{ route('works.index') }}" class="m-1" style="font-size: 17px; color:black">←　一覧に戻る</a>
-</div> --}}
 <div class="col-md-8 tw-row-justify-content-center">
   <a href="{{ route('works.show', $work->id) }}" class="m-1" style="font-size: 17px; color:black">← 詳細に戻る</a>
 </div>
@@ -31,9 +28,7 @@
           </div>
       </div>
   </div>
-{{-- <div class="col-md-8 tw-text-right">
-    <a href="{{ route('works.show') }}" class="btn btn-danger m-1">前に戻る</a>
-</div> --}}
+
   <div class="row justify-content-center mt-5">
     <div class="col-md-8">
         <form action="{{ route('comments.store') }}" method="post">
