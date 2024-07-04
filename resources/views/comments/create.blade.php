@@ -36,17 +36,18 @@
 
   <div class="row justify-content-center mt-5">
     <div class="col-md-8">
-        <form action="{{ route('comments.store') }}" method="post">
-            @csrf
-            <input type="hidden" name="work_id" value="{{ $work->id }}" style="font-size: 17px">
-            <div class="form-group">
-                <label class="" style="font-size: 17px">コメント</label>
-                <textarea class="form-control" 
-                placeholder="内容" rows="5" name="contents"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" onclick="return checkdata()">コメントする</button>
-            {{-- <button type="submit" class="btn btn-danger mt-3" onclick="return checkdata()">コメントする</button> --}}
-        </form>
+        <form method="POST" action="{{ route('comments.store') }}">
+          @csrf
+          <input type="hidden" name="work_id" value="{{ $work->id }}" style="font-size: 17px">
+          <div>
+            <label class="" style="font-size: 17px">コメント</label>
+          <textarea class="form-control" placeholder="内容" rows="5" id="contents" name="contents"></textarea>
+        </div>
+          <!-- 他の必要なフィールドを追加 -->
+      
+          <button type="submit" class="btn btn-danger mt-3" onclick="return checkdata1()">コメントする</button>
+      </form>
+
     </div>
   </div>
 </div>
@@ -54,5 +55,16 @@
 <footer>
     Copyright &copy; Softball Club.
 </footer>
+ <script>
+    function checkdata1() {
+        const contents = document.getElementById('contents').value.trim();
+
+        if (contents.length === 0) {
+            alert("コメントが未入力です");
+            return false;
+        }
+        return true;
+    }
+</script>
 
 @endsection

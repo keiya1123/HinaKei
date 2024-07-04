@@ -17,20 +17,24 @@ class CommentController extends Controller
         return view('comments.create' , ['work'=>$work]);
     }
 
+    //保存機能
     public function store(Request $request)
     {
         $work = Work::find($request->work_id);
+
+        $request->validate([
+            'contents' => 'required',
+        ]);
 
         $comment = new Comment;
         $comment -> contents = $request -> contents;
         $comment -> user_id = Auth::id();
         $comment -> work_id = $request -> work_id;
-
         $comment ->save();
 
         return redirect()->route('works.show', $work->id);
     }
-
+    
     //コメント削除機能
 
     public function destroy (Comment $comment)
