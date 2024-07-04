@@ -11,7 +11,7 @@
         <h2 style="font-size: 17px">以下の目標にコメントします</h2>
           <div class="card mt-3">
               <div class="card-header tw-bg-red-100" style="font-size: 17px">
-                  <h5>投稿者：{{ $work->id }}</h5>
+                  <h5>投稿者：{{ $work->user->name }}</h5>
               </div>
               <div class="card-body tw-bg-blue-100 tw-flex tw-items-center " style="font-size: 17px">
                   <div class="tw-mr-5">
@@ -39,9 +39,27 @@
                 <textarea class="form-control" 
                 placeholder="内容" rows="5" name="contents"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary mt-3">コメントする</button>
+            <button type="submit" class="btn btn-danger mt-3" onclick="return checkdata()">コメントする</button>
+            {{-- <a href="{{ route('works.index') }}" class="btn btn-danger m-1">一覧に戻る</a> --}}
         </form>
     </div>
   </div>
 </div>
+{{-- @endsection --}}
+<footer>
+    Copyright &copy; Softball Club.
+</footer>
+
+{{-- <script>
+  function checkdata()
+  {
+      const comment = document.getElementById('comment').value.replace(/\s/g, '');
+      
+      if(comment.length == "" ) {
+          alert("コメントが未入力です");
+          return false;
+      }
+      return true;
+  }
+</script> --}}
 @endsection
