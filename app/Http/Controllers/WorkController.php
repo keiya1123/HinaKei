@@ -15,11 +15,11 @@ class WorkController extends Controller
     public function index(Request $request)
     {
         if($request->pulldown == "目標一覧") {
-            $works = Work::latest()->get();
+            $works = Work::oldest('pulldown')->get();
         } elseif($request->pulldown == "マイページ") {
-            $works = Work::where('user_id', Auth::id())->latest()->get();
+            $works = Work::where('user_id', Auth::id())->oldest('pulldown')->get();
         } else {
-            $works = Work::where('pulldown', 'LIKE', $request->pulldown)->latest()->get();
+            $works = Work::where('pulldown', 'LIKE', $request->pulldown)->oldest('pulldown')->get();
         }
         return view('works.index', compact('works'));
     }
