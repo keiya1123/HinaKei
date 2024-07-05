@@ -38,7 +38,7 @@
               <div class="mt-3">
                   <div class=""style="">
                       <div class="tw-mb-3 tw-mt-8">
-                          <h5 class="tw-text-center" style="font-size: 30px">{{  $work->pulldown }}の目標</h5>
+                          <h5 class="tw-text-center" style="font-size: 30px">{{  $work->pulldown }}月の目標</h5>
                       </div>
                       <h5 class="tw-text-center " style="font-size: 30px">「　{{ $work->title }}　」</h5>
                   </div>
